@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+        <PackageReference Include="AutoMapper" Version="11.0.1" />
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.7"/>
+    </ItemGroup>
+
+    <!-- Debug refs -->
+	<!-- <ItemGroup>
+		<Reference Include="EFCore.Helper">
+			<HintPath>..\..\efcore-helper\EFCore.Helper\bin\Debug\net6.0\EFCore.Helper.dll</HintPath>
+		</Reference>
+		<Reference Include="Inventory.Min.Data">
+			<HintPath>..\..\inventory-min-data\Inventory.Min.Data\bin\Debug\net6.0\Inventory.Min.Data.dll</HintPath>
+		</Reference>
+		<Reference Include="Inventory.Min.Lib">
+			<HintPath>..\..\inventory-min-lib\Inventory.Min.Lib\bin\Debug\net6.0\Inventory.Min.Lib.dll</HintPath>
+		</Reference>
+	</ItemGroup> -->
+    <!-- Release refs -->
+	<!-- <ItemGroup>
+		<Reference Include="EFCore.Helper">
+			<HintPath>..\..\..\Build\efcore-helper\EFCore.Helper\EFCore.Helper.dll</HintPath>
+		</Reference>
+		<Reference Include="Inventory.Min.Data">
+			<HintPath>..\..\..\Build\inventory-min-data\Inventory.Min.Data\Inventory.Min.Data.dll</HintPath>
+		</Reference>
+		<Reference Include="Inventory.Min.Lib">
+			<HintPath>..\..\..\Build\inventory-min-lib\Inventory.Min.Lib\Inventory.Min.Lib.dll</HintPath>
+		</Reference>
+	</ItemGroup> -->
+    <ItemGroup>
+		<Reference Include="EFCore.Helper">
+			<HintPath>dlls\EFCore.Helper.dll</HintPath>
+		</Reference>
+        <Reference Include="ModelHelper">
+			<HintPath>dlls\ModelHelper.dll</HintPath>
+		</Reference>
+		<Reference Include="Inventory.Min.Data">
+			<HintPath>dlls\Inventory.Min.Data.dll</HintPath>
+		</Reference>
+		<Reference Include="Inventory.Min.Lib">
+			<HintPath>dlls\Inventory.Min.Lib.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+</Project>

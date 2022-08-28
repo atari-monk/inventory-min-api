@@ -1,5 +1,6 @@
 using Inventory.Min.Data;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Serialization;
 
 namespace Inventory.Min.Api;
 
@@ -19,6 +20,8 @@ public class ServicesRegister
         //SetDbContextForDockerCompose();
         builder.Services.AddScoped<IItemRepo, ItemRepo<InventoryDbContext>>();
         builder.Services.AddScoped<IInventoryUnitOfWork, InventoryUnitOfWork<InventoryDbContext>>();
+        builder.Services.AddControllers().AddNewtonsoftJson(
+            s=>s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
     }
 
     private void SetDbContextForLocalDb()

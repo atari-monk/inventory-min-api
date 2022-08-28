@@ -3,14 +3,10 @@ using ModelHelper;
 
 namespace Inventory.Min.Api.Dto;
 
-public class ItemReadDto
+public class ItemCreateDto
     : Model
 {
-	[Required]
-    [Range(IdMin, IdMax, ErrorMessage = IdError)]
-	public int Id { get; set; }
-
-	[Required]
+    [Required]
     [MaxLength(NameMax)]
 	public string? Name { get; set; }
 

@@ -21,26 +21,27 @@
 		<Reference Include="EFCore.Helper">
 			<HintPath>..\..\efcore-helper\EFCore.Helper\bin\Debug\net6.0\EFCore.Helper.dll</HintPath>
 		</Reference>
+        <Reference Include="ModelHelper">
+			<HintPath>..\..\model-helper\ModelHelper\bin\Debug\net6.0\ModelHelper.dll</HintPath>
+		</Reference>
 		<Reference Include="Inventory.Min.Data">
 			<HintPath>..\..\inventory-min-data\Inventory.Min.Data\bin\Debug\net6.0\Inventory.Min.Data.dll</HintPath>
 		</Reference>
-		<Reference Include="Inventory.Min.Lib">
-			<HintPath>..\..\inventory-min-lib\Inventory.Min.Lib\bin\Debug\net6.0\Inventory.Min.Lib.dll</HintPath>
-		</Reference>
 	</ItemGroup> -->
     <!-- Release refs -->
-	<!-- <ItemGroup>
+	<ItemGroup>
 		<Reference Include="EFCore.Helper">
 			<HintPath>..\..\..\Build\efcore-helper\EFCore.Helper\EFCore.Helper.dll</HintPath>
+		</Reference>
+        <Reference Include="ModelHelper">
+			<HintPath>..\..\..\Build\model-helper\ModelHelper\ModelHelper.dll</HintPath>
 		</Reference>
 		<Reference Include="Inventory.Min.Data">
 			<HintPath>..\..\..\Build\inventory-min-data\Inventory.Min.Data\Inventory.Min.Data.dll</HintPath>
 		</Reference>
-		<Reference Include="Inventory.Min.Lib">
-			<HintPath>..\..\..\Build\inventory-min-lib\Inventory.Min.Lib\Inventory.Min.Lib.dll</HintPath>
-		</Reference>
-	</ItemGroup> -->
-    <ItemGroup>
+	</ItemGroup>
+    <!-- Docker refs -->
+    <!-- <ItemGroup>
 		<Reference Include="EFCore.Helper">
 			<HintPath>dlls\EFCore.Helper.dll</HintPath>
 		</Reference>
@@ -50,8 +51,5 @@
 		<Reference Include="Inventory.Min.Data">
 			<HintPath>dlls\Inventory.Min.Data.dll</HintPath>
 		</Reference>
-		<Reference Include="Inventory.Min.Lib">
-			<HintPath>dlls\Inventory.Min.Lib.dll</HintPath>
-		</Reference>
-	</ItemGroup>
+	</ItemGroup> -->
 </Project>

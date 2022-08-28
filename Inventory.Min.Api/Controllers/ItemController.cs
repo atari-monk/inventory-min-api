@@ -32,7 +32,7 @@ public class ItemController
     [HttpGet("{id}", Name=nameof(GetItemById))]
 	public ActionResult<ItemReadDto> GetItemById(int id)
 	{
-		var item = uow.Item.GetByID(id);
+		var item = uow.Item.GetById(id);
 		if(item != null)
 		{
 			return Ok(mapper.Map<ItemReadDto>(item));
@@ -46,9 +46,7 @@ public class ItemController
 		var item = mapper.Map<Item>(dto);
 		uow.Item.Insert(item);
 		uow.Save();
-
 		var itemReadDto = mapper.Map<ItemReadDto>(item);
-
 		return CreatedAtRoute(nameof(GetItemById), new {Id = itemReadDto.Id}, itemReadDto);
 	}
 
@@ -57,17 +55,14 @@ public class ItemController
 		int id
 		, ItemUpdateDto dto)
 	{
-		var item = uow.Item.GetByID(id);
+		var item = uow.Item.GetById(id);
 		if(item == null)
 		{
 			return NotFound();
 		}
 		mapper.Map(dto, item);
-		
 		uow.Item.Update(item);
-
 		uow.Save();
-
 		return NoContent();
 	}
 
@@ -76,7 +71,7 @@ public class ItemController
 		int id
 		, JsonPatchDocument<ItemUpdateDto> patchDoc)
 	{
-		var item = uow.Item.GetByID(id);
+		var item = uow.Item.GetById(id);
 		if(item == null)
 		{
 			return NotFound();
@@ -89,6 +84,19 @@ public class ItemController
 		}
 		mapper.Map(itemDto, item);
 		uow.Item.Update(item);
+		uow.Save();
+		return NoContent();
+	}
+
+    [HttpDelete("{id}")]
+	public ActionResult DeleteItem(int id)
+	{
+		var item = uow.Item.GetById(id);
+		if(item == null)
+		{
+			return NotFound();
+		}
+		uow.Item.Delete(item);
 		uow.Save();
 		return NoContent();
 	}

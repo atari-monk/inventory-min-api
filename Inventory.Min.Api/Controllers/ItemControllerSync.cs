@@ -7,14 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 namespace Inventory.Min.Api.Controllers;
 
 [ApiController]
-[Route("api/items")]
-public class ItemController
+[Route("api/items/sync")]
+public class ItemControllerSync
     : ControllerBase
 {
     private readonly IInventoryUnitOfWork uow;
     private readonly IMapper mapper;
 
-    public ItemController(
+    public ItemControllerSync(
         IInventoryUnitOfWork uow
         , IMapper mapper)
     {
@@ -91,12 +91,10 @@ public class ItemController
     [HttpDelete("{id}")]
 	public ActionResult DeleteItem(int id)
 	{
-		var item = uow.Item.GetById(id);
-		if(item == null)
+        if(uow.Item.Delete(id) == false)
 		{
-			return NotFound();
-		}
-		uow.Item.Delete(item);
+            return NotFound();
+        }
 		uow.Save();
 		return NoContent();
 	}

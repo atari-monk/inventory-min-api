@@ -26,8 +26,12 @@ public class ServicesRegister
 
     private void SetDbContextForLocalDb()
     {
+        var dbConfig = builder.Configuration.GetSection("DbConfig").Get<DbConfig>();
+        var dbName = dbConfig?.DbNames!["MassTest"];
+        if(string.IsNullOrWhiteSpace(dbName)) 
+            throw new ArgumentException("Error: dbName is not configured!");
         builder.Services.AddDbContext<InventoryDbContext>(options =>
-            options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=FoodDb"));
+            options.UseSqlServer($"Server=(localdb)\\mssqllocaldb;Database={dbName}"));
     }
 
     private void SetDbContextForDockerCompose()

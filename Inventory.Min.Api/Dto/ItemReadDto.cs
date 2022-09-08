@@ -34,4 +34,40 @@ public class ItemReadDto
 
     [Column(TypeName = "decimal(5, 2)")]
     public decimal? PurchasePrice { get; set; }
+
+    [Column(TypeName = "decimal(5, 2)")]
+    public decimal? SellPrice { get; set; }
+
+    [MaxLength(PathMax)]
+	public string? ImagePath { get; set; }
+
+    [ForeignKey(nameof(Unit))]
+	public int? LengthUnitId { get; set; }
+
+    public double? Length { get; set; }
+
+	public double? Heigth { get; set; }
+
+	public double? Depth { get; set; }
+
+    public double?  Diameter { get; set; }
+
+    [ForeignKey(nameof(Unit))]
+	public int? VolumeUnitId { get; set; }
+
+    public double? Volume { get; set; }
+
+    public double? Mass { get; set; }
+
+    [ForeignKey(nameof(Unit))]
+	public int? MassUnitId { get; set; }
+
+    [ForeignKey(nameof(Tag))]
+	public int? TagId { get; set; }
+
+    [ForeignKey(nameof(State))]
+	public int? StateId { get; set; }
+
+    [ForeignKey(nameof(Item))]
+	public int? ParentId { get; set; }
 }

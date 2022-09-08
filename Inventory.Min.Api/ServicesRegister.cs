@@ -18,6 +18,7 @@ public class ServicesRegister
         builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         SetDbContextForLocalDb();
         //SetDbContextForDockerCompose();
+        builder.Services.AddScoped<ICategoryRepo, CategoryRepo<InventoryDbContext>>();
         builder.Services.AddScoped<IItemRepo, ItemRepo<InventoryDbContext>>();
         builder.Services.AddScoped<IInventoryUnitOfWork, InventoryUnitOfWork<InventoryDbContext>>();
         builder.Services.AddControllers().AddNewtonsoftJson(

@@ -17,6 +17,7 @@ public class InventoryProfile
 
 		CreateMap<Category, CategoryReadDto>();
 		CreateMap<Currency, CurrencyReadDto>();
+		CreateMap<State, StateReadDto>();
 
 	}
 }

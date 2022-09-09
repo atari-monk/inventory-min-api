@@ -19,6 +19,7 @@ public class ServicesRegister
         SetDbContextForLocalDb();
         //SetDbContextForDockerCompose();
         builder.Services.AddScoped<ICategoryRepo, CategoryRepo<InventoryDbContext>>();
+        builder.Services.AddScoped<ICurrencyRepo, CurrencyRepo<InventoryDbContext>>();
         builder.Services.AddScoped<IItemRepo, ItemRepo<InventoryDbContext>>();
         builder.Services.AddScoped<IInventoryUnitOfWork, InventoryUnitOfWork<InventoryDbContext>>();
         builder.Services.AddControllers().AddNewtonsoftJson(

@@ -23,9 +23,16 @@ public class ItemControllerAsync
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<ItemReadDto>>> GetAsync()
+    public async Task<ActionResult<IEnumerable<ItemReadDto>>> GetItemsAsync()
     {
-        var items = await uow.Item.GetAsync();
+        var items = await uow.Item.GetItemsAsync();
+		return Ok(mapper.Map<IEnumerable<ItemReadDto>>(items));
+    }
+
+    [HttpGet("category/{id:int}")]
+    public async Task<ActionResult<IEnumerable<ItemReadDto>>> GetItemsAsync(int id)
+    {
+        var items = await uow.Item.GetItemsAsync(id);
 		return Ok(mapper.Map<IEnumerable<ItemReadDto>>(items));
     }
 

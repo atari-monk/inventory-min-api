@@ -29,11 +29,25 @@ public class ItemControllerAsync
 		return Ok(mapper.Map<IEnumerable<ItemReadDto>>(items));
     }
 
-    [HttpGet("category/{id:int}")]
-    public async Task<ActionResult<IEnumerable<ItemReadDto>>> GetItemsAsync(int id)
+    [HttpGet("category/{categoryId:int}")]
+    public async Task<ActionResult<IEnumerable<ItemReadDto>>> GetItemsInOneCategoryAsync(int categoryId)
     {
-        var items = await uow.Item.GetItemsAsync(id);
+        var items = await uow.Item.GetItemsInOneCategoryAsync(categoryId);
 		return Ok(mapper.Map<IEnumerable<ItemReadDto>>(items));
+    }
+
+    [HttpGet("state/{stateId:int}")]
+    public async Task<ActionResult<IEnumerable<ItemReadDto>>> GetItemsExcludingOneStateAsync(int stateId)
+    {
+        var items = await uow.Item.GetItemsExcludingOneStateAsync(stateId);
+		return Ok(mapper.Map<IEnumerable<ItemReadDto>>(items));
+    }
+
+    [HttpGet("relatedExcludingOneState/{parentId:int}/{stateId:int}")]
+    public async Task<ActionResult<IEnumerable<ItemReadDto>>> GetRelatedItemsExcludingOneStateAsync(int parentId, int stateId)
+    {
+        var items = await uow.Item.GetRelatedItemsExcludingOneStateAsync(parentId, stateId);
+        return Ok(mapper.Map<IEnumerable<ItemReadDto>>(items));
     }
 
     [HttpGet("{id}", Name=nameof(GetItemByIdAsync))]

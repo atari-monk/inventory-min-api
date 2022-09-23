@@ -50,6 +50,13 @@ public class ItemControllerAsync
         return Ok(mapper.Map<IEnumerable<ItemReadDto>>(items));
     }
 
+    [HttpGet("rootOfOneCategory/{categoryId:int}")]
+    public async Task<ActionResult<IEnumerable<ItemReadDto>>> GetRootOfOneCategoryAsync(int categoryId)
+    {
+        var items = await uow.Item.GetRootItemsOfOneCategory(categoryId);
+        return Ok(mapper.Map<IEnumerable<ItemReadDto>>(items));
+    }
+
     [HttpGet("{id}", Name=nameof(GetItemByIdAsync))]
 	public async Task<ActionResult<ItemReadDto>> GetItemByIdAsync(int id)
 	{

@@ -48,13 +48,13 @@
     <!-- Docker refs -->
     <!-- <ItemGroup>
 		<Reference Include="EFCore.Helper">
-			<HintPath>dlls\EFCore.Helper.dll</HintPath>
+			<HintPath>out\EFCore.Helper.dll</HintPath>
 		</Reference>
         <Reference Include="ModelHelper">
-			<HintPath>dlls\ModelHelper.dll</HintPath>
+			<HintPath>out\ModelHelper.dll</HintPath>
 		</Reference>
 		<Reference Include="Inventory.Min.Data">
-			<HintPath>dlls\Inventory.Min.Data.dll</HintPath>
+			<HintPath>out\Inventory.Min.Data.dll</HintPath>
 		</Reference>
 	</ItemGroup> -->
 </Project>

@@ -6,11 +6,18 @@ tutorial by Les Jackson
 
 //lib dlls must be in same folder as csproj file so this my be helpfull
 dotnet publish -c Release -o out
-copy out content to dlls folder and point refs at it
+point proj refs at it
 
 //docker build
 docker build -t kmazanek/inventory.min.api .
 docker run -p 8080:80 kmazanek/inventory.min.api
+
+//problem with run due to certs
+https://learn.microsoft.com/en-us/aspnet/core/security/docker-https?view=aspnetcore-7.0
+dotnet dev-certs https --clean
+dotnet dev-certs https -ep $env:USERPROFILE\.aspnet\https\aspnetapp.pfx -p x
+dotnet dev-certs https --trust
+docker run --rm -it -p 8000:80 -p 8001:443 -e ASPNETCORE_URLS="https://+;http://+" -e ASPNETCORE_HTTPS_PORT=8001 -e ASPNETCORE_Kestrel__Certificates__Default__Password="x" -e ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx -v $env:USERPROFILE\.aspnet\https:/https/ kmazanek/inventory.min.api
 
 //get mssql docker image
 docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Pa$$w0rd2019' -e 'MSSQL_PID=Express' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest

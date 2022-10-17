@@ -1,5 +1,0 @@
-Notes on 
-Les Jackson tutorial
-"Step by Step - Use Azure DevOps to Test, Build and Deploy an API"
-to make this api online.
-

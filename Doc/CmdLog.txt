@@ -1,4 +1,4 @@
-//Just cmds log for ref when it might be helpfull note
+//used cmds
 dotnet new sln
 dotnet new xunit -n Inventory.Min.Api.Tests
 dotnet sln add Inventory.Min.Api

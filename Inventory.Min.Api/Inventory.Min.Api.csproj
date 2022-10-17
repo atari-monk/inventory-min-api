@@ -34,7 +34,7 @@
 		</Reference>
 	</ItemGroup> -->
     <!-- Release refs -->
-	<ItemGroup>
+	<!-- <ItemGroup>
 		<Reference Include="EFCore.Helper">
 			<HintPath>..\..\..\Build\efcore-helper\EFCore.Helper\EFCore.Helper.dll</HintPath>
 		</Reference>
@@ -44,9 +44,9 @@
 		<Reference Include="Inventory.Min.Data">
 			<HintPath>..\..\..\Build\inventory-min-data\Inventory.Min.Data\Inventory.Min.Data.dll</HintPath>
 		</Reference>
-	</ItemGroup>
+	</ItemGroup> -->
     <!-- Docker refs -->
-    <!-- <ItemGroup>
+    <ItemGroup>
 		<Reference Include="EFCore.Helper">
 			<HintPath>out\EFCore.Helper.dll</HintPath>
 		</Reference>
@@ -56,5 +56,5 @@
 		<Reference Include="Inventory.Min.Data">
 			<HintPath>out\Inventory.Min.Data.dll</HintPath>
 		</Reference>
-	</ItemGroup> -->
+	</ItemGroup>
 </Project>
